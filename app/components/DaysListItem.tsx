@@ -15,11 +15,11 @@ export function DaysListItem({
 }: DaysListItemProps) {
   return (
     <li className="flex justify-between items-center py-4 gap-4 border-t border-border">
-      <h3 className="text-base font-medium">{day}</h3>
+      <h3 className="text-base font-medium text-shadow-sm">{day}</h3>
       <Icon className="size-8 ml-auto" />
       <div className="flex gap-4 w-16 justify-end text-base font-normal">
         <span>{maxTemp}°</span>
-        <span className="text-muted-foreground">{minTemp}°</span>
+        <span className="text-muted-foreground text-shadow-sm">{minTemp}°</span>
       </div>
     </li>
   );

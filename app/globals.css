@@ -2,10 +2,10 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: rgb(255, 255, 255);
   --muted: #fafafa;
-  --muted-foreground: #666666;
-  --border: #eaeaea;
+  --muted-foreground: rgba(255, 255, 255, 0.8);
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -19,7 +19,6 @@
   /* Fonts */
   --font-sans: var(--font-inter);
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0f0f0f;

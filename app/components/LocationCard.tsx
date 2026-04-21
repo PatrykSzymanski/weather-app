@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getCurrentTimeInTimezone } from "../lib/utils";
+import { getWeatherBackground } from "../lib/weatherBackgrounds";
 import { WeatherIcon } from "../lib/types";
 
 interface LocationCardProps {
@@ -10,6 +11,7 @@ interface LocationCardProps {
   timezone: string;
   Icon: WeatherIcon;
   isNight?: boolean;
+  weatherCode: number;
 }
 
 export function LocationCard({
@@ -20,21 +22,25 @@ export function LocationCard({
   timezone,
   Icon,
   isNight,
+  weatherCode,
 }: LocationCardProps) {
+  const background = getWeatherBackground(weatherCode, isNight ?? false);
   return (
     <Link
       href={`/${slug}`}
-      className="block py-6 px-7 border border-border rounded-2xl bg-background hover:bg-muted"
+      className={`block py-6 px-7 rounded-2xl bg-linear-to-b ${background} hover:opacity-90 shadow-lg shadow-black/30 inset-shadow-xs inset-shadow-white/20`}
     >
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-base font-semibold">{name}</h2>
-          <p className="text-sm text-muted-foreground">
+          <h2 className="text-base font-semibold text-shadow-md">{name}</h2>
+          <p className="text-sm text-muted-foreground text-shadow-sm">
             {getCurrentTimeInTimezone(timezone)} · {description}
           </p>
         </div>
         <div className="flex gap-6 items-center">
-          <span className="text-4xl font-light">{temperature}°</span>
+          <span className="text-4xl font-light text-shadow-md">
+            {temperature}°
+          </span>
           <Icon className="size-12" isNight={isNight} />
         </div>
       </div>
