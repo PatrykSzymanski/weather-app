@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { LucideIcon } from "lucide-react";
 import { getCurrentTimeInTimezone } from "../lib/utils";
+import { WeatherIcon } from "../lib/types";
 
 interface LocationCardProps {
   slug: string;
@@ -8,7 +8,8 @@ interface LocationCardProps {
   description: string;
   temperature: number;
   timezone: string;
-  Icon: LucideIcon;
+  Icon: WeatherIcon;
+  isNight?: boolean;
 }
 
 export function LocationCard({
@@ -18,6 +19,7 @@ export function LocationCard({
   temperature,
   timezone,
   Icon,
+  isNight,
 }: LocationCardProps) {
   return (
     <Link
@@ -33,7 +35,7 @@ export function LocationCard({
         </div>
         <div className="flex gap-6 items-center">
           <span className="text-4xl font-light">{temperature}°</span>
-          <Icon className="size-9 text-muted-foreground/70 stroke-[1.5]" />
+          <Icon className="size-12" isNight={isNight} />
         </div>
       </div>
     </Link>

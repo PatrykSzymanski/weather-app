@@ -20,3 +20,19 @@ export function getCurrentTimeInTimezone(timezone: string): string {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-GB", { weekday: "long" });
   }
+
+  export function isNightTime(
+    timezone: string,
+    sunrise: string,
+    sunset: string
+  ): boolean {
+    const now = new Date();
+    const currentTime = new Date(
+      now.toLocaleString("en-US", { timeZone: timezone })
+    );
+  
+    const sunriseTime = new Date(sunrise);
+    const sunsetTime = new Date(sunset);
+  
+    return currentTime < sunriseTime || currentTime > sunsetTime;
+  }

@@ -1,10 +1,10 @@
-import { LucideIcon } from "lucide-react";
+import { WeatherIcon } from "../lib/types";
 
 interface DaysListItemProps {
   day: string;
   maxTemp: number;
   minTemp: number;
-  Icon: LucideIcon;
+  Icon: WeatherIcon;
 }
 
 export function DaysListItem({
@@ -16,7 +16,7 @@ export function DaysListItem({
   return (
     <li className="flex justify-between items-center py-4 gap-4 border-t border-border">
       <h3 className="text-base font-medium">{day}</h3>
-      <Icon className="size-5 text-muted-foreground/70 ml-auto" />
+      <Icon className="size-8 ml-auto" />
       <div className="flex gap-4 w-16 justify-end text-base font-normal">
         <span>{maxTemp}°</span>
         <span className="text-muted-foreground">{minTemp}°</span>

@@ -3,7 +3,12 @@ import { locations, getLocationBySlug } from "../data/locations";
 import { getWeather } from "../actions/actions";
 import { getWeatherIcon } from "../lib/weatherIcons";
 import { getWeatherDescription } from "../lib/weatherDescriptions";
-import { getCurrentTimeInTimezone, formatDate, getDayName } from "../lib/utils";
+import {
+  getCurrentTimeInTimezone,
+  formatDate,
+  getDayName,
+  isNightTime,
+} from "../lib/utils";
 import { DaysListItem } from "../components/DaysListItem";
 
 export function generateStaticParams() {
@@ -28,6 +33,11 @@ export default async function LocationPage({ params }: PageProps) {
   const todayForecast = weather.daily[0];
   const Icon = getWeatherIcon(weather.current.weatherCode);
   const description = getWeatherDescription(weather.current.weatherCode);
+  const isNight = isNightTime(
+    weather.current.timezone,
+    weather.current.sunrise,
+    weather.current.sunset
+  );
 
   return (
     <div className="flex flex-col gap-16 py-8">
@@ -47,7 +57,7 @@ export default async function LocationPage({ params }: PageProps) {
             </span>
             <p className="text-base text-muted-foreground">{description}</p>
           </div>
-          <Icon className="size-20 text-muted-foreground/70 stroke-1" />
+          <Icon isNight={isNight} className="size-28" />
         </section>
       </header>
 

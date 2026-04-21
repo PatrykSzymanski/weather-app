@@ -2,6 +2,7 @@ import { locations } from "./data/locations";
 import { getWeather } from "./actions/actions";
 import { getWeatherIcon } from "./lib/weatherIcons";
 import { getWeatherDescription } from "./lib/weatherDescriptions";
+import { isNightTime } from "./lib/utils";
 import { LocationCard } from "./components/LocationCard";
 
 export default async function Home() {
@@ -17,6 +18,11 @@ export default async function Home() {
       {weatherData.map(({ location, weather }) => {
         const Icon = getWeatherIcon(weather.current.weatherCode);
         const description = getWeatherDescription(weather.current.weatherCode);
+        const isNight = isNightTime(
+          weather.current.timezone,
+          weather.current.sunrise,
+          weather.current.sunset
+        );
 
         return (
           <li key={location.slug}>
@@ -27,6 +33,7 @@ export default async function Home() {
               temperature={weather.current.temperature}
               timezone={weather.current.timezone}
               Icon={Icon}
+              isNight={isNight}
             />
           </li>
         );
