@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${inter.variable} antialiased bg-linear-to-b from-slate-900 to-slate-950 text-foreground`}
       >
         <Effects />
-        <header className="fixed top-0 left-0 w-full z-10">
+        <header className="absolute top-0 left-0 w-full z-10">
           <div className="max-w-xl mx-auto py-8 px-6">
             <h1 className="text-base font-semibold mb-6 text-muted-foreground text-shadow-sm hover:text-foreground">
               <Link href="/">Weather</Link>
