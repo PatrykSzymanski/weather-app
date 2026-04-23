@@ -6,30 +6,31 @@ interface RainProps {
 export function Rain({ x = 0, y = 0 }: RainProps) {
   return (
     <g transform={`translate(${x}, ${y})`}>
-      <defs>
-        <linearGradient id="rainGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#60a5fa" />
-          <stop offset="100%" stopColor="#3b82f6" />
-        </linearGradient>
-      </defs>
-
-      {/* Left drop - medium, slightly delayed feel */}
+      {/* Drop 1 — far left, small, high */}
       <path
-        d="M142 284 C142 284 128 316 128 328 C128 336 134.3 342 142 342 C149.7 342 156 336 156 328 C156 316 142 284 142 284 Z"
-        fill="url(#rainGrad)"
+        d="M130 280 C130 280 120 304 120 313 C120 318.5 124.5 323 130 323 C135.5 323 140 318.5 140 313 C140 304 130 280 130 280 Z"
+        fill="url(#rainGradient)"
+        opacity={0.65}
+      />
+
+      {/* Drop 2 — left-center, large, leading */}
+      <path
+        d="M170 288 C170 288 153 326 153 341 C153 350.4 160.6 358 170 358 C179.4 358 187 350.4 187 341 C187 326 170 288 170 288 Z"
+        fill="url(#rainGradient)"
+        opacity={0.95}
+      />
+
+      {/* Drop 3 — right-center, medium */}
+      <path
+        d="M214 296 C214 296 201 324 201 335 C201 342.2 206.8 348 214 348 C221.2 348 227 342.2 227 335 C227 324 214 296 214 296 Z"
+        fill="url(#rainGradient)"
         opacity={0.85}
       />
 
-      {/* Center drop - largest, leading */}
+      {/* Drop 4 — far right, smallest, trailing */}
       <path
-        d="M192 292 C192 292 174 332 174 348 C174 358 182.1 366 192 366 C201.9 366 210 358 210 348 C210 332 192 292 192 292 Z"
-        fill="url(#rainGrad)"
-      />
-
-      {/* Right drop - small, trailing */}
-      <path
-        d="M238 290 C238 290 227 316 227 325 C227 331.6 232 337 238 337 C244 337 249 331.6 249 325 C249 316 238 290 238 290 Z"
-        fill="url(#rainGrad)"
+        d="M252 292 C252 292 243 312 243 320 C243 325 247 329 252 329 C257 329 261 325 261 320 C261 312 252 292 252 292 Z"
+        fill="url(#rainGradient)"
         opacity={0.7}
       />
     </g>

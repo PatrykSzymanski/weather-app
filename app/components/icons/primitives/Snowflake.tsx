@@ -20,7 +20,7 @@ function Flake({
 
   return (
     <g opacity={opacity}>
-      <circle cx={cx} cy={cy} r={size * 0.18} fill="url(#snowGrad)" />
+      <circle cx={cx} cy={cy} r={size * 0.18} fill="url(#snowGradient)" />
       {angles.map((deg) => {
         const rad = (deg * Math.PI) / 180;
         const cos = Math.cos(rad);
@@ -36,7 +36,7 @@ function Flake({
               y1={cy}
               x2={cx + arm * cos}
               y2={cy + arm * sin}
-              stroke="url(#snowGrad)"
+              stroke="url(#snowGradient)"
               strokeWidth={size * 0.12}
               strokeLinecap="round"
             />
@@ -45,7 +45,7 @@ function Flake({
               y1={by}
               x2={bx + branch * Math.cos(((deg + 35) * Math.PI) / 180)}
               y2={by + branch * Math.sin(((deg + 35) * Math.PI) / 180)}
-              stroke="url(#snowGrad)"
+              stroke="url(#snowGradient)"
               strokeWidth={size * 0.09}
               strokeLinecap="round"
             />
@@ -54,7 +54,7 @@ function Flake({
               y1={by}
               x2={bx + branch * Math.cos(((deg - 35) * Math.PI) / 180)}
               y2={by + branch * Math.sin(((deg - 35) * Math.PI) / 180)}
-              stroke="url(#snowGrad)"
+              stroke="url(#snowGradient)"
               strokeWidth={size * 0.09}
               strokeLinecap="round"
             />
@@ -68,13 +68,6 @@ function Flake({
 export function Snowflake({ x = 0, y = 0 }: SnowflakeProps) {
   return (
     <g transform={`translate(${x}, ${y})`}>
-      <defs>
-        <linearGradient id="snowGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#e0f2fe" />
-          <stop offset="100%" stopColor="#7dd3fc" />
-        </linearGradient>
-      </defs>
-
       <Flake cx={120} cy={320} size={52} opacity={0.85} />
       <Flake cx={240} cy={340} size={48} />
       <Flake cx={180} cy={290} size={36} opacity={0.7} />
