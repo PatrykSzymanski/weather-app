@@ -8,17 +8,34 @@ export function Effects() {
             <stop offset="100%" style={{ stopColor: "var(--color-amber-600)" }} />
           </linearGradient>
   
-          {/* Yellow glow */}
-          <radialGradient id="yellowGlow" cx="50%" cy="50%" r="50%">
-            <stop
-              offset="0%"
-              style={{ stopColor: "var(--color-yellow-100)", stopOpacity: 1 }}
-            />
-            <stop
-              offset="100%"
-              style={{ stopColor: "var(--color-yellow-300)", stopOpacity: 0 }}
-            />
-          </radialGradient>
+        {/* Yellow glow */}
+        <radialGradient id="yellowGlow" cx="50%" cy="50%" r="50%">
+          <stop
+            offset="0%"
+            style={{ stopColor: "var(--color-yellow-100)", stopOpacity: 1 }}
+          />
+          <stop
+            offset="100%"
+            style={{ stopColor: "var(--color-yellow-300)", stopOpacity: 0 }}
+          />
+        </radialGradient>
+
+        {/* Slate gradient */}
+        <linearGradient id="slateGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style={{ stopColor: "var(--color-slate-300)" }} />
+          <stop offset="100%" style={{ stopColor: "var(--color-slate-500)" }} />
+        </linearGradient>
+
+        {/* Moon bloom - soft gaussian blur for a shape-following halo */}
+        <filter
+          id="moonBloom"
+          x="-50%"
+          y="-50%"
+          width="200%"
+          height="200%"
+        >
+          <feGaussianBlur stdDeviation="18" />
+        </filter>
   
           {/* White inner shadow*/}
           <filter
