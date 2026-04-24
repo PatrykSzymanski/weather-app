@@ -14,7 +14,7 @@ export function DaysListItem({
   Icon,
 }: DaysListItemProps) {
   return (
-    <li className="flex justify-between items-center py-4 gap-4 border-t border-border">
+    <li className="flex justify-between items-center py-4 gap-4 border-t border-border [--animation-duration:0]">
       <h3 className="text-base font-medium text-shadow-sm">{day}</h3>
       <Icon className="size-8 ml-auto" />
       <div className="flex gap-4 w-16 justify-end text-base font-normal">

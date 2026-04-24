@@ -11,7 +11,8 @@ export function Sun({ x = 0, y = 0 }: SunProps) {
         cy={192 + y}
         r="150"
         fill="url(#yellowGlow)"
-        opacity={0.7}
+        className="animate-pulse"
+        style={{ transformOrigin: "center" }}
       />
       <circle
         cx={192 + x}

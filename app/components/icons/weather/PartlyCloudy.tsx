@@ -6,7 +6,9 @@ export function PartlyCloudy({ isNight, className }: WeatherIconProps) {
   return (
     <WeatherIcon className={className}>
       {isNight ? <Moon x={20} y={-10} /> : <Sun x={20} y={-10} />}
-      <Cloud x={-20} y={30} />
+      <g className="icon-hover animate-hover">
+        <Cloud x={-20} y={30} />
+      </g>
     </WeatherIcon>
   );
 }

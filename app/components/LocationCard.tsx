@@ -28,8 +28,7 @@ export function LocationCard({
   return (
     <Link
       href={`/${slug}`}
-      className={`block py-6 px-7 rounded-2xl bg-linear-to-b ${background} hover:opacity-90 shadow-lg shadow-black/30 inset-shadow-xs inset-shadow-white/20`}
-    >
+      className={`group block py-6 px-7 rounded-2xl bg-linear-to-b ${background} hover:opacity-90 shadow-lg shadow-black/30 inset-shadow-xs inset-shadow-white/20 transition-opacity duration-150`}>
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-base font-semibold text-shadow-md">{name}</h2>
@@ -41,7 +40,10 @@ export function LocationCard({
           <span className="text-4xl font-light text-shadow-md">
             {temperature}°
           </span>
-          <Icon className="size-12" isNight={isNight} />
+          <Icon
+            className="size-12 [&_.icon-hover]:[animation-play-state:paused] group-hover:[&_.icon-hover]:[animation-play-state:running]"
+            isNight={isNight}
+          />
         </div>
       </div>
     </Link>
