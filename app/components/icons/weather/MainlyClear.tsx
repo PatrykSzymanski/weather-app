@@ -7,10 +7,10 @@ export function MainlyClear({ isNight, className }: WeatherIconProps) {
     <WeatherIcon className={className}>
       {isNight ? <Moon x={20} y={-10} /> : <Sun x={20} y={-10} />}
       <g className="icon-hover animate-hover">
-        <Cloud x={-80} y={80} scale={0.5} />
+        <Cloud x={-84} y={76} scale={0.58} />
       </g>
       <g className="icon-hover animate-hover">
-        <Cloud x={80} y={-80} scale={0.5} />
+        <Cloud x={80} y={-36} scale={0.5} />
       </g>
     </WeatherIcon>
   );

@@ -91,10 +91,10 @@ export function Effects() {
           </feMerge>
         </filter>
 
-        {/* Rain gradient - crisp droplet blue */}
+        {/* Rain gradient - crisp, slightly deeper droplet blue */}
         <linearGradient id="rainGradient" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "var(--color-sky-300)" }} />
-          <stop offset="100%" style={{ stopColor: "var(--color-blue-600)" }} />
+          <stop offset="0%" style={{ stopColor: "var(--color-sky-400)" }} />
+          <stop offset="100%" style={{ stopColor: "var(--color-blue-700)" }} />
         </linearGradient>
 
         {/* Snow gradient - cool white with a blue hint */}
