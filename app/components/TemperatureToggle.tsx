@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
-
-type TemperatureUnit = "C" | "F";
+import { useTemperatureUnit } from "./TemperatureUnitProvider";
 
 export function TemperatureToggle() {
-  const [unit, setUnit] = useState<TemperatureUnit>("C");
+  const { unit, setUnit } = useTemperatureUnit();
   const isFahrenheit = unit === "F";
   const nextUnit = isFahrenheit ? "C" : "F";
 

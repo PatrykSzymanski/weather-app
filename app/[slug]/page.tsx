@@ -13,6 +13,7 @@ import {
 import { DaysListItem } from "../components/DaysListItem";
 import { TemperatureToggle } from "../components/TemperatureToggle";
 import { WeatherIconByCode } from "../components/WeatherIconByCode";
+import { TemperatureValue } from "../components/TemperatureValue";
 
 export function generateStaticParams() {
   return locations.map((location) => ({
@@ -62,9 +63,10 @@ export default async function LocationPage({ params }: PageProps) {
 
             <section className="flex justify-between items-center">
               <div className="flex flex-col gap-2">
-                <span className="text-6xl font-light text-shadow-lg">
-                  {weather.current.temperature}°
-                </span>
+                <TemperatureValue
+                  celsius={weather.current.temperature}
+                  className="text-6xl font-light text-shadow-lg"
+                />
                 <p className="text-base text-muted-foreground text-shadow-sm">
                   {description}
                 </p>
