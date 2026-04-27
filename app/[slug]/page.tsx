@@ -11,6 +11,8 @@ import {
   isNightTime,
 } from "../lib/utils";
 import { DaysListItem } from "../components/DaysListItem";
+import { TemperatureToggle } from "../components/TemperatureToggle";
+import { WeatherIconByCode } from "../components/WeatherIconByCode";
 
 export function generateStaticParams() {
   return locations.map((location) => ({
@@ -32,7 +34,6 @@ export default async function LocationPage({ params }: PageProps) {
 
   const weather = await getWeather(location.lat, location.lon);
   const todayForecast = weather.daily[0];
-  const Icon = getWeatherIcon(weather.current.weatherCode);
   const description = getWeatherDescription(weather.current.weatherCode);
   const isNight = isNightTime(
     weather.current.timezone,
@@ -46,14 +47,17 @@ export default async function LocationPage({ params }: PageProps) {
       <div className="max-w-xl mx-auto py-24 px-6">
         <div className="flex flex-col gap-16 py-8">
           <header className="flex flex-col gap-8">
-            <section className="flex flex-col">
-              <h2 className="text-xl font-semibold text-shadow-md">
-                {location.name}
-              </h2>
-              <p className="text-base text-muted-foreground text-shadow-sm">
-                {formatDate(todayForecast.date)}{" "}
-                {getCurrentTimeInTimezone(weather.current.timezone)}
-              </p>
+            <section className="flex items-start justify-between gap-4">
+              <div className="flex flex-col">
+                <h2 className="text-xl font-semibold text-shadow-md">
+                  {location.name}
+                </h2>
+                <p className="text-base text-muted-foreground text-shadow-sm">
+                  {formatDate(todayForecast.date)}{" "}
+                  {getCurrentTimeInTimezone(weather.current.timezone)}
+                </p>
+              </div>
+              <TemperatureToggle />
             </section>
 
             <section className="flex justify-between items-center">
@@ -65,7 +69,11 @@ export default async function LocationPage({ params }: PageProps) {
                   {description}
                 </p>
               </div>
-              <Icon isNight={isNight} className="size-28" />
+              <WeatherIconByCode
+                code={weather.current.weatherCode}
+                isNight={isNight}
+                className="size-28"
+              />
             </section>
           </header>
 

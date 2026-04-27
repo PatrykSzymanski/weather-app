@@ -4,6 +4,7 @@ import { getWeatherIcon } from "./lib/weatherIcons";
 import { getWeatherDescription } from "./lib/weatherDescriptions";
 import { isNightTime } from "./lib/utils";
 import { LocationCard } from "./components/LocationCard";
+import { TemperatureToggle } from "./components/TemperatureToggle";
 import {
   ClearSky,
   MainlyClear,
@@ -42,6 +43,9 @@ export default async function Home() {
 
   return (
     <div className="max-w-xl mx-auto py-24 px-6">
+      <div className="mb-6 flex justify-end">
+        <TemperatureToggle />
+      </div>
       <ul className="flex flex-col gap-4">
         {weatherData.map(({ location, weather }) => {
           const Icon = getWeatherIcon(weather.current.weatherCode);
